@@ -13,12 +13,16 @@ public class MoviesStore {
     private final ConcurrentHashMap<Long, Movie> movies = new ConcurrentHashMap<>();
     private final AtomicLong idGenerator = new AtomicLong(1);
 
-    /** Возвращает список всех фильмов. */
+    /**
+     * Возвращает список всех фильмов.
+     */
     public List<Movie> getAll() {
         return new ArrayList<>(movies.values());
     }
 
-    /** Находит фильм по идентификатору, если он существует. */
+    /**
+     * Находит фильм по идентификатору, если он существует.
+     */
     public Optional<Movie> getById(long id) {
         return Optional.ofNullable(movies.get(id));
     }
@@ -33,12 +37,16 @@ public class MoviesStore {
         return movie;
     }
 
-    /** Удаляет фильм по идентификатору. Возвращает true, если объект удалён. */
+    /**
+     * Удаляет фильм по идентификатору. Возвращает true, если объект удалён.
+     */
     public boolean delete(long id) {
         return movies.remove(id) != null;
     }
 
-    /** Очищает хранилище. */
+    /**
+     * Очищает хранилище.
+     */
     public void clear() {
         movies.clear();
         idGenerator.set(1);

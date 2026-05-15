@@ -2,6 +2,7 @@ package ru.practicum.moviehub.http;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+
 import com.sun.net.httpserver.HttpServer;
 import ru.practicum.moviehub.store.MoviesStore;
 
@@ -19,11 +20,19 @@ public class MoviesServer {
         httpServer.createContext("/movies", handler);
     }
 
-    /** Запускает сервер. */
-    public void start() { httpServer.start(); }
+    /**
+     * Запускает сервер.
+     */
+    public void start() {
+        httpServer.start();
+    }
 
-    /** Останавливает сервер. */
-    public void stop() { httpServer.stop(0); }
+    /**
+     * Останавливает сервер.
+     */
+    public void stop() {
+        httpServer.stop(0);
+    }
 
     /**
      * Для тестов – очищает все данные.
