@@ -76,12 +76,12 @@ public class MovieService {
         if (title == null || title.trim().isEmpty()) {
             errors.add("название не должно быть пустым");
         } else if (title.length() > MAX_TITLE_LENGTH) {
-            errors.add("название не может превышать 100 символов");
+            errors.add(String.format("название не может превышать %d символов", MAX_TITLE_LENGTH));
         }
 
         int currentYear = LocalDate.now().getYear();
         if (year < MIN_YEAR || year > currentYear + 1) {
-            errors.add(String.format("год должен быть между 1888 и %d", currentYear + 1));
+            errors.add(String.format("год должен быть между %d и %d", MIN_YEAR, currentYear + 1));
         }
 
         return errors;
